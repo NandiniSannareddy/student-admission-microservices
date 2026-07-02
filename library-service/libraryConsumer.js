@@ -5,7 +5,7 @@ const startConsumer=async()=>{
     try{
         await consumer.subscribe({
             topic:process.env.KAFKA_TOPIC,
-            fromBeginning:true
+            fromBeginning:false
         })
         console.log("Waiting for student registrations")
 
