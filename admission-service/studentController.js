@@ -4,7 +4,7 @@ import {producer} from "./config/kafka.js"
 export const register=async(req, res)=>{
     try{
         const student = await Student.create(req.body);
-        console.log("Student saved:", savedStudent);
+        console.log("Student saved:", student);
         await producer.send({
             topic:process.env.KAFKA_TOPIC,
             messages:[
