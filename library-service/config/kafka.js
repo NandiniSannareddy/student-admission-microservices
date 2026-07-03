@@ -5,6 +5,12 @@ dotenv.config();
 const kafka = new Kafka({
   clientId: "library-service",
   brokers: [process.env.KAFKA_BROKER],
+    ssl: true,
+  sasl: {
+    mechanism: "plain",
+    username: process.env.KAFKA_USERNAME,
+    password: process.env.KAFKA_PASSWORD,
+  },
 });
 
 const consumer = kafka.consumer({
